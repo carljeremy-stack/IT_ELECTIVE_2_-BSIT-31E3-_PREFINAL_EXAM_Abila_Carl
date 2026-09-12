@@ -1,0 +1,34 @@
+﻿@model List<PrefinalExamApp.Models.ExamQuestion>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Prefinal Exam Questions</h2>
+
+    @foreach (var q in Model)
+    {
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Question @q.Number</h5>
+                <p class="card-text fw-bold">@q.QuestionText</p>
+                
+                <ul class="list-group list-group-flush mb-3">
+                    @foreach (var opt in q.Options)
+                    {
+                        <li class="list-group-item">@opt</li>
+                    }
+                </ul>
+
+                <div class="alert alert-success mb-1 py-2">
+                    <strong>Correct Answer:</strong> @q.CorrectAnswer
+                </div>
+                
+                <div class="alert alert-info mb-0 py-2">
+                    <strong>Explanation:</strong> @q.Explanation
+                </div>
+            </div>
+        </div>
+    }
+</div>
